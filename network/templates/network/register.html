@@ -1,0 +1,50 @@
+{% extends "network/layout.html" %}
+
+{% block body %}
+  <div id="register-form">
+    <div class="row justify-content-center">
+      <h2>Register</h2>
+    </div>
+
+    <div class="row justify-content-center">
+      {% if message %}
+          <div>{{ message }}</div>
+      {% endif %}
+    </div>
+
+    <form action="{% url 'register' %}" method="post">
+      {% csrf_token %}
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <input class="form-control" autofocus type="text" name="username" placeholder="Username" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="form-group">
+            <input class="form-control" type="email" name="email" placeholder="Email Address" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="form-group">
+            <input class="form-control" type="password" name="password1" placeholder="Password" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="form-group">
+          <input class="form-control" type="password" name="password2" placeholder="Confirm Password" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <input class="button medium" type="submit" value="Register">
+      </div>
+    </form>
+    <div class="row justify-content-center" style="margin: 25px 0;">
+      Already have an account?<a href="{% url 'login' %}" style="color: #1ab2ff;">&nbspLog In here.</a>
+    </div>
+
+  </div>
+{% endblock %}

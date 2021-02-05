@@ -1,0 +1,153 @@
+body {
+  font-family: 'Baloo Tamma 2';
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #000000;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#add-post-form {
+  margin: 25px 0;
+}
+
+#login-form, #register-form {
+  margin: 50px 0;
+}
+
+#following-users-posts {
+  margin: 25px 0;
+}
+
+.single-post {
+  margin: 4px 0;
+  padding: 15px 25px;
+  border: 1px solid #d9d9d9;
+  border-radius: 20px;
+}
+
+.pagination {
+  margin: 25px 0;
+}
+
+.pagination > li > a {
+  color: #1ab2ff;
+}
+
+.pagination > li > a:hover {
+  color: #1ab2ff;
+}
+
+.pagination > .active > a {
+  background-color: #1ab2ff !important;
+  border: none;
+}
+
+.like-btn, .likes-count {
+  padding: 4px 0;
+  font-size: 19px;
+}
+
+.like-btn:hover {
+  cursor: pointer;
+}
+
+#profile-info {
+  margin: 45px 0;
+}
+
+.profile-img {
+  width: 160px;
+  height: auto;
+  background-color: #f2f2f2;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.profile-img i {
+  margin: auto;
+  padding: 40px 0;
+  font-size: 80px;
+  color: #ffffff;
+}
+
+.profile-username {
+  text-align: center;
+  margin: 15px 0;
+  font-size: 28px;
+}
+
+.profile-followers, .profile-follows, .profile-posts-count {
+  margin: 10px 12px;
+}
+
+.profile-number {
+  font-size: 22px;
+}
+
+.profile-following {
+  margin: 25px 0;
+}
+
+.button {
+  display: inline-block;
+  color: #1ab2ff;
+  background-color: #ffffff;
+  text-decoration: none;
+  border: 2px solid #1ab2ff;
+  border-radius: 28px;
+  transition: color 0.2s, background-color 0.2s, border 0.2s;
+}
+
+.button:hover {
+  color: #ffffff;
+  background-color: #1ab2ff;
+  border: 2px solid #1ab2ff;
+}
+
+.button:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.small {
+  padding: 4px 20px;
+  font-size: 15px;
+}
+
+.medium {
+  padding: 6px 30px;
+  font-size: 18px;
+}
+
+.large {
+  padding: 6px 40px;
+  font-size: 24px;
+}
+
+.post-username {
+  color: #1ab2ff;
+  font-size: 18px;
+}
+
+.post-time {
+  color: #cccccc;
+}
+
+.post-body {
+  margin: 25px 0;
+}
+
+.post-textarea {
+  margin: 15px 0;
+}
+
+.post-likes {
+  margin-right: 10px;
+}

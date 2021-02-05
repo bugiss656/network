@@ -1,0 +1,67 @@
+{% extends 'network/layout.html' %}
+
+{% block body %}
+  <section id="following-users-posts">
+    {% if not following_users_posts %}
+      <h5>You are not following any user yet.</h5>
+    {% else %}
+      <h5>Following users posts:</h5>
+      {% for post in following_users_posts %}
+        <div class="row justify-content-center">
+          <div class="col-md-8 single-post">
+            <div class="row">
+              <a href="{% url 'userProfile' post.user %}"><span class="post-username">{{ post.user }}</span></a>
+            </div>
+            <div class="row">
+              <div class="post-time">{{ post.post_time }}</div>
+            </div>
+            <div class="row post-body-{{ post.id }}">
+              <div class="post-body post-{{ post.id }}">
+                {{ post.body }}
+              </div>
+            </div>
+            <div class="row">
+              <div class="post-likes">
+                {% if request.user.username in post.users %}
+                  <i data-action="unlike" data-post-id="{{ post.id }}" class="fas fa-thumbs-up like-btn"></i>
+                {% else %}
+                  <i data-action="like" data-post-id="{{ post.id }}" class="far fa-thumbs-up like-btn"></i>
+                {% endif %}
+                <span class="likes-count-{{ post.id }}">{{ post.post_likes }}</span>
+              </div>
+              {% if post.user == user %}
+                <button data-post-id="{{ post.id }}" data-post-body="{{ post.body }}" class="button small action-btn">Edit</button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endif %}
+
+    <div class="row justify-content-center">
+      <nav>
+        <ul class="pagination">
+          {% if following_users_posts.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page=1">&laquo; first</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ following_users_posts.previous_page_number }}">Previous</a></li>
+          {% endif %}
+
+          {% for page in following_users_posts.paginator.page_range %}
+            {% if following_users_posts.paginator.count > 10 %}
+              {% if following_users_posts.number == page %}
+                <li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+              {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+              {% endif %}
+            {% endif %}
+          {% endfor %}
+
+          {% if following_users_posts.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ following_users_posts.next_page_number }}">next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ following_users_posts.paginator.num_pages }}">last &raquo;</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </section>
+{% endblock %}
